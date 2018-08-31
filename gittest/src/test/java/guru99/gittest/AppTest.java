@@ -2,6 +2,8 @@ package guru99.gittest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class AppTest
@@ -29,6 +31,19 @@ public class AppTest
 			System.out.println("Test Failed");
 		}
 		driver.close();
+	}
+
+	@BeforeTest
+	public void beforeTest()
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\dhatchayani.chitramb\\selenium tool\\Driver\\chromedriver_win32\\chromedriver.exe");
+		driver = new ChromeDriver();
+
+	}
+	@AfterTest
+	public void afterTest()
+	{
+		driver.quit();
 	}
 }
 // import junit.framework.Test;
